@@ -31,7 +31,7 @@ def process_song_data(spark, input_data, output_data):
         output_data :   the location where the output files will be stored
     """
     # get filepath to song data file
-    song_data = input_data + 'song_data/*/*/*/*.json'
+    song_data = os.path.join(input_data, 'song_data/*/*/*/*.json')
     
     # read song data file
     df = spark.read.json(song_data)
@@ -61,7 +61,7 @@ def process_log_data(spark, input_data, output_data):
         output-data :  the path to where the output files will be stored after processing
     """
     # get filepath to log data file
-    log_data = input_data + 'log_data/*/*/*.json'
+    log_data = os.path.join(input_data, 'log_data/*/*/*.json')
     
     # read log data file
     df = spark.read.json(log_data)
